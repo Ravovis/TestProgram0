@@ -1,0 +1,41 @@
+<div ng-controller="itemsController">
+    <form name="new-person">
+        <input ng-model="newItemName" type="text" placeholder="newItemName" />
+        <input ng-model="newItemType" type="text" placeholder="newItemType" />
+        <button type="submit" ng-click="add()">Add</button>
+        <p class="error">{{errPost}}</p>
+    </form>
+    
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Item Type</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in filteredItems">
+                <td>{{ x.itemName }}</td>
+                <td>{{ x.itemType }}</td>
+                <td>
+                    <button ng-click="editBox(x)">Edit</button>
+                    <button ng-click="remove(x)">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <form name="new-person" ng-hide="HideEditBox">
+        <input ng-model="EditItem.itemName" type="text" placeholder="ItemName" />
+        <input ng-model="EditItem.itemType" type="text" placeholder="ItemType" />
+        <button type="submit" ng-click="edit()">Save</button>
+        <p class="error">{{errPut}}</p>
+    </form>
+
+    <div data-pagination="" data-num-pages="numOfPages()"
+         data-current-page="curPage" data-max-size="maxSize"
+         data-boundary-links="true"></div>
+</div>

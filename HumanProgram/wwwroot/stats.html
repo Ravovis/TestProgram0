@@ -1,0 +1,20 @@
+<div ng-controller="itemsStatsController">
+    <table>
+        <thead>
+            <tr>
+                <th>Item Type</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in filteredItems">
+                <td>{{ x.itemType }}</td>
+                <td>{{ x.itemTypeCount }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div data-pagination="" data-num-pages="numOfPages()"
+         data-current-page="curPage" data-max-size="maxSize"
+         data-boundary-links="true"></div>
+</div>
